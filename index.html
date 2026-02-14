@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Particle.js for Page 3 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-hearts">
+            <div class="heart-loader">💕</div>
+            <div class="heart-loader">💖</div>
+            <div class="heart-loader">💗</div>
+        </div>
+        <p class="loading-text">Loading something special...</p>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control -->
+    <button class="music-control" id="musicControl">
+        <span class="music-icon">🔊</span>
+    </button>
+
+    <!-- Page 1: 3D Envelope with Wax Seal -->
+    <div class="page page-1 active" id="page1">
+        <div class="container">
+            <div class="hearts-bg"></div>
+            
+            <div class="envelope-scene">
+                <div class="instruction" id="instruction">
+                    <p>✨ Klik wax seal untuk membuka ✨</p>
+                    <div class="arrow-down">↓</div>
+                </div>
+                
+                <div class="envelope-3d" id="envelope3d">
+                    <!-- Wax Seal -->
+                    <div class="wax-seal" id="waxSeal">
+                        <div class="seal-stamp">❤️</div>
+                        <div class="seal-shine"></div>
+                    </div>
+                    
+                    <!-- 3D Envelope -->
+                    <div class="envelope-wrapper">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body"></div>
+                        <div class="envelope-back"></div>
+                    </div>
+                    
+                    <!-- Letter Card -->
+                    <div class="letter-card" id="letterCard">
+                        <div class="card-ornament top-left">✨</div>
+                        <div class="card-ornament top-right">✨</div>
+                        <div class="card-ornament bottom-left">💕</div>
+                        <div class="card-ornament bottom-right">💕</div>
+                        
+                        <h1 class="card-title">Happy Valentine's Day</h1>
+                        <div class="heart-icon">❤️</div>
+                        <div class="card-message">
+                            <p class="typewriter-text"></p>
+                        </div>
+                        <p class="card-signature">I love you ❤️</p>
+                        <button class="btn-next" id="nextBtn1">Lanjut →</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="floating-hearts"></div>
+        </div>
+    </div>
+
+    <!-- Page 2: Enhanced Photo Gallery -->
+    <div class="page page-2" id="page2">
+        <button class="btn-back" id="backBtn2">← Kembali</button>
+        
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h1 class="gallery-title">Our Memories Together 💕</h1>
+                <p class="gallery-subtitle">Setiap foto ini penuh kenangan indah bersamaa bubuu</p>
+            </div>
+
+            <div class="polaroid-gallery" id="polaroidGallery">
+                <!-- Photo 1 -->
+                <div class="polaroid" data-index="0">
+                    <div class="polaroid-inner">
+                        <div class="photo-frame">
+                            <img src="foto1.jpg" alt="Memory 1" class="polaroid-photo" data-photo="1">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📷</div>
+                                <p>Tambahkan Foto 1</p>
+                                <small>foto1.jpg</small>
+                            </div>
+                        </div>
+                        <div class="caption">Kenangan pertama kita ✨</div>
+                    </div>
+                    <div class="tape tape-1"></div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="polaroid" data-index="1">
+                    <div class="polaroid-inner">
+                        <div class="photo-frame">
+                            <img src="foto2.jpg" alt="Memory 2" class="polaroid-photo" data-photo="2">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📷</div>
+                                <p>foto2.jpg</p>
+                                <small>foto2.jpg</small>
+                            </div>
+                        </div>
+                        <div class="caption">Senyum manismu 🥰</div>
+                    </div>
+                    <div class="tape tape-2"></div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="polaroid" data-index="2">
+                    <div class="polaroid-inner">
+                        <div class="photo-frame">
+                            <img src="foto3.jpg" alt="Memory 3" class="polaroid-photo" data-photo="3">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📷</div>
+                                <p>Tambahkan Foto 3</p>
+                                <small>Ganti di src image</small>
+                            </div>
+                        </div>
+                        <div class="caption">Petualangan bersama 🎈</div>
+                    </div>
+                    <div class="tape tape-1"></div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="polaroid" data-index="3">
+                    <div class="polaroid-inner">
+                        <div class="photo-frame">
+                            <img src="foto4.jpg" alt="Memory 4" class="polaroid-photo" data-photo="4">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📷</div>
+                                <p>Tambahkan Foto 4</p>
+                                <small>Ganti di src image</small>
+                            </div>
+                        </div>
+                        <div class="caption">Kamu & aku selamanya </div>
+                    </div>
+                    <div class="tape tape-2"></div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="polaroid" data-index="4">
+                    <div class="polaroid-inner">
+                        <div class="photo-frame">
+                            <img src="foto5.jpg" alt="Memory 5" class="polaroid-photo" data-photo="5">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📷</div>
+                                <p>Tambahkan Foto 5</p>
+                                <small>Ganti di src image</small>
+                            </div>
+                        </div>
+                        <div class="caption">Hari spesial kita 🎉</div>
+                    </div>
+                    <div class="tape tape-1"></div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="polaroid" data-index="5">
+                    <div class="polaroid-inner">
+                        <div class="photo-frame">
+                            <img src="foto6.jpg" alt="Memory 6" class="polaroid-photo" data-photo="6">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📷</div>
+                                <p>Tambahkan Foto 6</p>
+                                <small>Ganti di src image</small>
+                            </div>
+                        </div>
+                        <div class="caption">Love you always 💖</div>
+                    </div>
+                    <div class="tape tape-2"></div>
+                </div>
+            </div>
+
+            <div class="stickers">
+                <div class="sticker sticker-1">💝</div>
+                <div class="sticker sticker-2">🌹</div>
+                <div class="sticker sticker-3">⭐</div>
+                <div class="sticker sticker-4">💕</div>
+                <div class="sticker sticker-5">🦋</div>
+            </div>
+
+            <button class="btn-next btn-gallery-next" id="nextBtn2">Lanjut ke alasan kenapa aku suka kamu →</button>
+        </div>
+
+        <!-- Enhanced Photo Viewer with Ken Burns Effect -->
+        <div class="photo-viewer" id="photoViewer">
+            <button class="viewer-close" id="viewerClose">✕</button>
+            <button class="viewer-prev" id="viewerPrev">‹</button>
+            <button class="viewer-next" id="viewerNext">›</button>
+            <div class="viewer-content">
+                <div class="viewer-image-wrapper">
+                    <img src="" alt="Photo" id="viewerImage" class="ken-burns">
+                </div>
+                <p class="viewer-caption" id="viewerCaption"></p>
+            </div>
+            <div class="viewer-indicator" id="viewerIndicator">1 / 6</div>
+        </div>
+    </div>
+
+    <!-- Page 2.5: Reasons Why I Like You -->
+    <div class="page page-reasons" id="pageReasons">
+        <button class="btn-back" id="backBtn25">← Kembali</button>
+        
+        <div class="reasons-container">
+            <div class="reasons-header">
+                <h1 class="reasons-title">10 Alasan Kenapa Aku Suka Kamu 💕</h1>
+                <p class="reasons-subtitle">Klik tombol "Lihat Alasan" untuk reveal!</p>
+            </div>
+
+            <div class="cards-grid-simple">
+                <!-- Reason 1 -->
+                <div class="reason-item">
+                    <div class="reason-number">1</div>
+                    <div class="reason-icon">💖</div>
+                    <button class="btn-reveal-reason" data-reason="0">Lihat Alasan</button>
+                    <div class="reason-text" data-index="0">
+                        <p>Senyummu tuuu harikuuu terasaaa ceraahh bgttt</p>
+                    </div>
+                </div>
+
+                <!-- Reason 2 -->
+                <div class="reason-item">
+                    <div class="reason-number">2</div>
+                    <div class="reason-icon">🌟</div>
+                    <button class="btn-reveal-reason" data-reason="1">Lihat Alasan</button>
+                    <div class="reason-text" data-index="1">
+                        <p>CARA KAMUU DALAMM MEMPERHATIIN AKUUUU</p>
+                    </div>
+                </div>
+
+                <!-- Reason 3 -->
+                <div class="reason-item">
+                    <div class="reason-number">3</div>
+                    <div class="reason-icon">🎈</div>
+                    <button class="btn-reveal-reason" data-reason="2">Lihat Alasan</button>
+                    <div class="reason-text" data-index="2">
+                        <p>MUKAAAA KAMUUU YANGG IMOETTT</p>
+                    </div>
+                </div>
+
+                <!-- Reason 4 -->
+                <div class="reason-item">
+                    <div class="reason-number">4</div>
+                    <div class="reason-icon">✨</div>
+                    <button class="btn-reveal-reason" data-reason="3">Lihat Alasan</button>
+                    <div class="reason-text" data-index="3">
+                        <p>CINTAAAMUUU YANGGG SANGATTTT CINTAA HEHEHE</p>
+                    </div>
+                </div>
+
+                <!-- Reason 5 -->
+                <div class="reason-item">
+                    <div class="reason-number">5</div>
+                    <div class="reason-icon">🌸</div>
+                    <button class="btn-reveal-reason" data-reason="4">Lihat Alasan</button>
+                    <div class="reason-text" data-index="4">
+                        <p>CARAAA KAMUU NYEMANGATINNN DAN SUPORT AKUUUUHH</p>
+                    </div>
+                </div>
+
+                <!-- Reason 6 -->
+                <div class="reason-item">
+                    <div class="reason-number">6</div>
+                    <div class="reason-icon">🦋</div>
+                    <button class="btn-reveal-reason" data-reason="5">Lihat Alasan</button>
+                    <div class="reason-text" data-index="5">
+                        <p>BIBIRRR DANN MATAMU YANG BIKIN AKU TERSEM SEM DEMNNNN</p>
+                    </div>
+                </div>
+
+                <!-- Reason 7 -->
+                <div class="reason-item">
+                    <div class="reason-number">7</div>
+                    <div class="reason-icon">🎵</div>
+                    <button class="btn-reveal-reason" data-reason="6">Lihat Alasan</button>
+                    <div class="reason-text" data-index="6">
+                        <p>VIBESSSSMUUU YANGG KALEMMM TAPI ASLINYAA ENGGA</p>
+                    </div>
+                </div>
+
+                <!-- Reason 8 -->
+                <div class="reason-item">
+                    <div class="reason-number">8</div>
+                    <div class="reason-icon">💫</div>
+                    <button class="btn-reveal-reason" data-reason="7">Lihat Alasan</button>
+                    <div class="reason-text" data-index="7">
+                        <p>CARAA KAMUU CAREE KE AKUUU</p>
+                    </div>
+                </div>
+
+                <!-- Reason 9 -->
+                <div class="reason-item">
+                    <div class="reason-number">9</div>
+                    <div class="reason-icon">🌈</div>
+                    <button class="btn-reveal-reason" data-reason="8">Lihat Alasan</button>
+                    <div class="reason-text" data-index="8">
+                        <p>CARAAA KAMUU MEMBUAT AKU BERUBAH</p>
+                    </div>
+                </div>
+
+                <!-- Reason 10 -->
+                <div class="reason-item">
+                    <div class="reason-number">10</div>
+                    <div class="reason-icon">💝</div>
+                    <button class="btn-reveal-reason" data-reason="9">Lihat Alasan</button>
+                    <div class="reason-text" data-index="9">
+                        <p>Karena kamu adalah kamu, dan itu udah lebih dari cukup </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-next btn-reasons-next" id="nextBtn25">Lanjut ke pesan spesial →</button>
+        </div>
+    </div>
+
+    <!-- Page 3: Romantic Message with Particles -->
+    <div class="page page-3" id="page3">
+        <button class="btn-back btn-back-dark" id="backBtn3">← Kembali</button>
+        
+        <div class="message-container">
+            <!-- Particle.js Background -->
+            <div id="particles-js"></div>
+            
+            <div class="romantic-bg">
+                <div class="stars" id="stars"></div>
+                <div class="shooting-stars" id="shootingStars"></div>
+            </div>
+
+            <div class="reveal-section">
+                <h1 class="romantic-title">Ada sesuatu yang pengen aku bilang...</h1>
+                <button class="btn-reveal" id="revealBtn">
+                    <span class="btn-text">Klik untuk lihat 💌</span>
+                    <span class="btn-hearts">
+                        <span>❤️</span>
+                        <span>💕</span>
+                        <span>💖</span>
+                    </span>
+                </button>
+            </div>
+
+            <div class="romantic-message" id="romanticMessage">
+                <div class="message-box" id="messageBox">
+                    <div class="quote-mark">"</div>
+                    <p class="romantic-text" id="text1">
+                        Dari sekian banyak orang di dunia ini,
+                    </p>
+                    <p class="romantic-text" id="text2">
+                        aku bersyukur bisa ketemu sama kamu.
+                    </p>
+                    <p class="romantic-text" id="text3">
+                        Kamu bukan cuma partner hidup aku,
+                    </p>
+                    <p class="romantic-text" id="text4">
+                        tapi juga cintaku yang terbaik, tempat pulang,
+                    </p>
+                    <p class="romantic-text" id="text5">
+                        dan alasan aku untuk jadi lebih baik setiap hari.
+                    </p>
+                    <p class="romantic-text" id="text6">
+                        I love you more than words can say 💕
+                    </p>
+                    <div class="quote-mark quote-end">"</div>
+                </div>
+
+                <div class="heart-burst"></div>
+                
+                <div class="final-message">
+                    <p>Happy Valentine's Day, Sayang! 🌹</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secret Message Modal (Easter Egg) -->
+    <div class="secret-modal" id="secretModal">
+        <div class="secret-content">
+            <button class="secret-close" id="secretClose">✕</button>
+            <h2>🎉 Secret Message! 🎉</h2>
+            <p class="secret-text">
+                Kamu nemu easter egg-nya! 💕<br><br>
+                Fun fact: Aku udah mikirin kamu <span id="thinkCount">1000</span> kali hari ini!<br><br>
+                Dan aku gak akan pernah bosen buat bilang betapa spesialnya kamu buat akuuuu MWAAAAAAAAAAAAAAAAAA
+            </p>
+            <div class="secret-hearts">
+                <span>💖</span>
+                <span>💕</span>
+                <span>💗</span>
+                <span>💘</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
